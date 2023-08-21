@@ -1,4 +1,4 @@
-if [ -z $NUM_FILES ]; then
+if [ -n $NUM_FILES ]; then
   ## CREATE TEST FILES AND LINKS ##
   data_dir="/rucio/store/data/Run2018A/EGamma/MINIAOD/UL2018_MiniAODv2-v1/50000"
   num_files=$NUM_FILES
