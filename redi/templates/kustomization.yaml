@@ -1,0 +1,19 @@
+resources:
+  - deploy.yaml
+
+configMapGenerator:
+  - name: NAME_PLACEHOLDER-conf
+    files:
+      - xrootd.cfg
+
+#secretGenerator:
+#  - name: NAME_PLACEHOLDER-self-certs
+#    files:
+#      - hostcert.pem
+#      - hostcert.key.pem
+#      - macaroon-secret
+generatorOptions:
+  disableNameSuffixHash: true
+
+commonLabels:
+  app: NAME_PLACEHOLDER
