@@ -47,10 +47,6 @@ spec:
             - containerPort: MAIN_PORT_PLACEHOLDER
             - containerPort: REDI_PORT_PLACEHOLDER
           name: NAME_PLACEHOLDER
-          lifecycle:
-            postStart:
-              exec:
-                command: ["bin/sh", "-c", "/setup-redi.sh"] 
           securityContext:
             privileged: True
           resources:

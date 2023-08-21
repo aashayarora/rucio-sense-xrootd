@@ -40,6 +40,8 @@ spec:
             value: "[IPV6_PLACEHOLDER]"
           - name: XRD_PORT
             value: "PORT_PLACEHOLDER"
+          - name: NUM_FILES
+            value: 10
           image: aaarora/rucio-sense-xrootd:latest
 #          lifecycle:
 #            postStart:

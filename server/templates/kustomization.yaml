@@ -1,11 +1,6 @@
 resources:
   - deploy.yaml
 
-configMapGenerator:
-  - name: NAME_PLACEHOLDER-conf
-    files:
-      - xrootd.cfg
-
 generatorOptions:
   disableNameSuffixHash: true
 
