@@ -30,14 +30,14 @@ class DeploymentWriter:
             f_out.write("delete:\n")
             for new_deployment in self._get_deployments():
                 local_path = new_deployment.replace(f"{self.base_dir}/", "")
-                delete_cmd = f"\t- kubectl delete -k ./{local_path}"
+                delete_cmd = f"\t- kubectl -n osg-gil delete -k ./{local_path}"
                 if self.namespace != "":
                     delete_cmd += f" -n {self.namespace}"
                 f_out.write(f"{delete_cmd}\n")
             f_out.write("create:\n")
             for new_deployment in self._get_deployments():
                 local_path = new_deployment.replace(f"{self.base_dir}/", "")
-                apply_cmd = f"\t- kubectl apply -k ./{local_path}"
+                apply_cmd = f"\t- kubectl -n osg-gil apply -k ./{local_path}"
                 if self.namespace != "":
                     apply_cmd += f" -n {self.namespace}"
                 f_out.write(f"{apply_cmd}\n")

@@ -1,19 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: NAME_PLACEHOLDER
   labels:
     k8s-app: NAME_PLACEHOLDER
-  name: NAME_PLACEHOLDER
 spec:
   replicas: 1
   selector:
     matchLabels:
       k8s-app: NAME_PLACEHOLDER
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
       creationTimestamp: null
@@ -41,12 +36,8 @@ spec:
           - name: XRD_PORT
             value: "PORT_PLACEHOLDER"
           - name: NUM_FILES
-            value: 10
+            value: "400"
           image: aaarora/rucio-sense-xrootd:latest
-#          lifecycle:
-#            postStart:
-#              exec:
-#                command: ["sh", "-c", "/setup.sh 10"]
           imagePullPolicy: Always
           ports:
             - containerPort: PORT_PLACEHOLDER
@@ -56,10 +47,10 @@ spec:
           resources:
             limits:
               cpu: 128
-              memory: 400Gi
+              memory: 600Gi
             requests:
-              cpu: 25
-              memory: 300Gi
+              cpu: 24
+              memory: 600Gi
           volumeMounts:
             - mountPath: /rucio
               name: cache-volume
@@ -80,9 +71,9 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
         - name: cache-volume
-          emptyDir: # {}
-            medium: Memory
-            sizeLimit: 400Gi
+          emptyDir: {}
+#            medium: Memory
+#            sizeLimit: 400Gi
         - name: certs
           secret:
             secretName: CERTS_PLACEHOLDER
