@@ -1,18 +1,18 @@
-if [ -n $NUM_FILES ]; then
-  ## CREATE TEST FILES AND LINKS ##
-  data_dir="/rucio/store/data/Run2018A/EGamma/MINIAOD/UL2018_MiniAODv2-v1/50000"
-  num_files=$NUM_FILES
-  start_point=$START_POINT
+num_files="${NUM_FILES:-100}"
+num_datasets="${NUM_DATASETS:-10}"
+num_symlinks="${NUM_SYMLINKS:-10}"
 
-  mkdir -p "$data_dir"
+data_dir="/rucio/store/data/Run2018A/EGamma/MINIAOD/UL2018_MiniAODv2-v1/"
 
-  for ((i=start_point; i<=num_files+start_point; i++)); do
-    dd if=/dev/zero of="/rucio/testSourceFile$i" bs=1G count=1
-    for ((j=0; j<=4; j++)); do
-      ln "/rucio/testSourceFile$i" "${data_dir}/testSourceFile$((j * num_files + i)).root"
+mkdir -p "$data_dir"
+for ((i=0; i<=num_files; i++)); do
+  dd if=/dev/zero of="/rucio/testSourceFile$i" bs=1G count=1
+  for ((d=50000; d<=50000+1000*num_datasets; d+=1000)); do
+    for ((j=0; j<=num_symlinks; j++)); do
+      ln "/rucio/testSourceFile$i" "${data_dir}/$d/testSourceFile$((j * num_files + i)).root"
     done
   done
+done
 
-  # Set ownership to xrootd user and group
-  chown -R xrootd:xrootd /rucio/*
-fi
+# Set ownership to xrootd user and group
+chown -R xrootd:xrootd /rucio/*

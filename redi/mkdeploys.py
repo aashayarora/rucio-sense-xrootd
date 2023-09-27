@@ -22,8 +22,9 @@ class RediDeploymentWriter(DeploymentWriter):
         return text
 
     def _get_deployment_name(self, config):
-        N = config["node"].split(".")[0].split("-")[-1]
-        return f"{self.app_name}-{N}-{config['multus'][-3:]}-{config['main_port'].replace('.', '-')}"
+        ipv6_last4 = config["ipv6"].split(":")[-1]
+        ipv6_subnet = config["ipv6"].split(":")[-3]
+        return f"{self.app_name}-{ipv6_subnet}-{ipv6_last4}"
 
     def _get_site_name(self, config):
         ipv6_last4 = config["ipv6"].split(":")[-1]
@@ -41,27 +42,27 @@ class RediDeploymentWriter(DeploymentWriter):
 if __name__ == "__main__":
     redi_configs = [
         {
-            "node": "k8s-gen4-01.sdsc.optiputer.net", 
+            "node": "k8s-gen4-02.sdsc.optiputer.net", 
             "ipv6": "2001:48d0:3001:111::800",
             "multus": "multus111-3",
-            "mac": "06:02:5c:67:13:1c",
+            "mac": "56:25:24:23:4f:49",
             "gateway": "2001:48d0:3001:111::1",
             "main_port": "1094",
             "interface": "enp1s0f1np1",
             "redi_port": "1213",
             "certs": "certs-redi"
         },
-#        {
-#            "node": "k8s-gen4-01.sdsc.optiputer.net", 
-#            "ipv6": "2001:48d0:3001:112::800",
-#            "multus": "multus112-3",
-#            "mac": "06:a5:af:ef:3c:de",
-#            "gateway": "2001:48d0:3001:112::1",
-#            "main_port": "1094",
-#            "interface": "enp1s0f1np1",
-#            "redi_port": "1213",
-#            "certs": "certs-redi"
-#        },
+        {
+            "node": "k8s-gen4-01.sdsc.optiputer.net", 
+            "ipv6": "2001:48d0:3001:112::800",
+            "multus": "multus112-3",
+            "mac": "06:a5:af:ef:3c:de",
+            "gateway": "2001:48d0:3001:112::1",
+            "main_port": "1094",
+            "interface": "enp1s0f1np1",
+            "redi_port": "1213",
+            "certs": "certs-redi"
+        },
     ]
     deployment_writer = RediDeploymentWriter(
         base_dir="./", 

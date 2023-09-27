@@ -35,10 +35,6 @@ spec:
             value: "[IPV6_PLACEHOLDER]"
           - name: XRD_PORT
             value: "PORT_PLACEHOLDER"
-          - name: NUM_FILES
-            value: "100"
-          - name: START_POINT
-            value: "0"
           image: aaarora/rucio-sense-xrootd:latest
           imagePullPolicy: Always
           ports:
@@ -49,10 +45,10 @@ spec:
           resources:
             limits:
               cpu: 128
-              memory: 100Gi
+              memory: 800Gi
             requests:
-              cpu: 24
-              memory: 100Gi
+              cpu: 16
+              memory: 64Gi
           volumeMounts:
             - mountPath: /rucio
               name: cache-volume
@@ -74,8 +70,6 @@ spec:
       volumes:
         - name: cache-volume
           emptyDir: {}
-            # medium: Memory
-            # sizeLimit: 400Gi
         - name: certs
           secret:
             secretName: CERTS_PLACEHOLDER
