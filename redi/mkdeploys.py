@@ -42,7 +42,7 @@ class RediDeploymentWriter(DeploymentWriter):
 if __name__ == "__main__":
     redi_configs = [
         {
-            "node": "k8s-gen4-02.sdsc.optiputer.net", 
+            "node": "k8s-gen4-01.sdsc.optiputer.net", 
             "ipv6": "2001:48d0:3001:111::800",
             "multus": "multus111-3",
             "mac": "56:25:24:23:4f:49",
@@ -58,6 +58,17 @@ if __name__ == "__main__":
             "multus": "multus112-3",
             "mac": "06:a5:af:ef:3c:de",
             "gateway": "2001:48d0:3001:112::1",
+            "main_port": "1094",
+            "interface": "enp1s0f1np1",
+            "redi_port": "1213",
+            "certs": "certs-redi"
+        },
+        {
+            "node": "k8s-gen4-01.sdsc.optiputer.net", 
+            "ipv6": "2001:48d0:3001:113::800",
+            "multus": "multus113-3",
+            "mac": "9e:c0:a8:3f:86:02",
+            "gateway": "2001:48d0:3001:113::1",
             "main_port": "1094",
             "interface": "enp1s0f1np1",
             "redi_port": "1213",

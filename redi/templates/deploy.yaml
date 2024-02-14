@@ -54,7 +54,7 @@ spec:
               cpu: 20
               memory: 20Gi
             requests:
-              cpu: 12
+              cpu: 6
               memory: 12Gi
           volumeMounts:
             - mountPath: /mnt

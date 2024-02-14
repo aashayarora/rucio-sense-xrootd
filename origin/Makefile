@@ -1,0 +1,26 @@
+delete:
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-111-400
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-111-500
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-111-600
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-111-700
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-112-400
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-112-500
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-112-600
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-112-700
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-113-400
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-113-500
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-113-600
+	- kubectl -n osg-gil delete -k ./deployments/rucio-sense-server-113-700
+create:
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-111-400
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-111-500
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-111-600
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-111-700
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-112-400
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-112-500
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-112-600
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-112-700
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-113-400
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-113-500
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-113-600
+	- kubectl -n osg-gil apply -k ./deployments/rucio-sense-server-113-700
