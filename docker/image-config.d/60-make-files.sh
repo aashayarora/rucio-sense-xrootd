@@ -8,7 +8,7 @@ if [ -z "$REDIRECTOR" ]; then
 
   for ((i=0; i<=num_files; i++)); do
     dd if=/dev/zero of="/rucio/testSourceFile$i" bs=1G count=4
-    for ((d=65000; d<=50000+1000*num_datasets; d+=1000)); do
+    for ((d=65000; d<=65000+1000*num_datasets; d+=1000)); do
       for ((j=0; j<=num_symlinks; j++)); do
         mkdir "${data_dir}/$d"
         ln "/rucio/testSourceFile$i" "${data_dir}/$d/testSourceFile$((j * num_files + i)).root"

@@ -19,6 +19,7 @@ spec:
             '[{ 
                     "name": "MULTUS_PLACEHOLDER",
                     "ips": ["IPV6_PLACEHOLDER/64"],
+                    "mac": "MAC_PLACEHOLDER",
                     "gateway": ["GATEWAY_PLACEHOLDER"]
             }]'
     spec:
@@ -74,7 +75,9 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
         - name: cache-volume
-          emptyDir: {}
+          hostPath:
+            path: /mnt/nvme
+            type: Directory
         - name: certs
           secret:
             secretName: CERTS_PLACEHOLDER

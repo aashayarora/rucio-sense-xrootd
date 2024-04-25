@@ -43,7 +43,7 @@ class ServerDeploymentWriter(DeploymentWriter):
 def make_k8s_gen4_servers():
     server_configs = [
        {
-          "node": "k8s-gen4-01.sdsc.optiputer.net", 
+          "node": "k8s-gen5-01.sdsc.optiputer.net", 
           "ipv6": "2001:48d0:3001:111::400",
           "multus": "multus111",
           "mac": "4a:63:d1:f8:02:56",
@@ -54,9 +54,9 @@ def make_k8s_gen4_servers():
           "redi_port": "1213",
        }, 
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-01.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:111::500",
-           "multus": "multus111-1",
+           "multus": "multus111",
            "mac": "be:17:3d:9c:45:df",
            "gateway": "2001:48d0:3001:111::1",
            "port": "1094",
@@ -65,10 +65,10 @@ def make_k8s_gen4_servers():
            "redi_port": "1213",
        }, 
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-01.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:111::600",
            "certs": "certs-600",
-           "multus": "multus111-4",
+           "multus": "multus111",
            "mac": "ce:9d:1c:86:79:60",
            "gateway": "2001:48d0:3001:111::1",
            "port": "1094",
@@ -76,10 +76,10 @@ def make_k8s_gen4_servers():
            "redi_port": "1213",
        }, 
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-01.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:111::700",
            "certs": "certs-700",
-           "multus": "multus111-3",
+           "multus": "multus111",
            "mac": "76:22:27:ed:2a:f7",
            "gateway": "2001:48d0:3001:111::1",
            "port": "1094",
@@ -88,7 +88,7 @@ def make_k8s_gen4_servers():
        }, 
        ### 112 ###
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-02.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:112::400",
            "multus": "multus112",
            "mac": "e6:ba:06:08:4d:13",
@@ -99,9 +99,9 @@ def make_k8s_gen4_servers():
            "redi_port": "1213",
        }, 
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-02.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:112::500",
-           "multus": "multus112-1",
+           "multus": "multus112",
            "mac": "be:c5:c0:e7:a1:d2",
            "gateway": "2001:48d0:3001:112::1",
            "port": "1094",
@@ -110,10 +110,10 @@ def make_k8s_gen4_servers():
            "redi_port": "1213",
        }, 
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-02.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:112::600",
            "certs": "certs-600",
-           "multus": "multus112-4",
+           "multus": "multus112",
            "mac": "8a:d5:97:75:18:91",
            "gateway": "2001:48d0:3001:112::1",
            "port": "1094",
@@ -121,10 +121,10 @@ def make_k8s_gen4_servers():
            "redi_port": "1213",
        }, 
        {
-           "node": "k8s-gen4-01.sdsc.optiputer.net", 
+           "node": "k8s-gen5-02.sdsc.optiputer.net", 
            "ipv6": "2001:48d0:3001:112::700",
            "certs": "certs-700",
-           "multus": "multus112-3",
+           "multus": "multus112",
            "mac": "9e:b7:d5:eb:f1:0f",
            "gateway": "2001:48d0:3001:112::1",
            "port": "1094",

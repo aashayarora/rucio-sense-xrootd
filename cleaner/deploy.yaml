@@ -1,0 +1,49 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    k8s-app: sense-clean-gen5
+  name: sense-clean-gen5
+  namespace: osg-gil
+spec:
+  selector:
+    matchLabels:
+      k8s-app: sense-clean-gen5
+  template:
+    metadata:
+      labels:
+        k8s-app: sense-clean-gen5
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - "k8s-gen5-01.sdsc.optiputer.net"
+                - "k8s-gen5-02.sdsc.optiputer.net"
+      containers:
+      - env:
+        - name: SENSE_CLEANUP
+          value: '1'
+        image: "aaarora/sense-cleaner:latest"
+        imagePullPolicy: "Always"
+        name: sense-clean-gen5
+        resources:
+          limits:
+            cpu: 1
+            memory: "1Gi"
+          requests:
+            cpu: "100m"
+            memory: "50Mi"
+        volumeMounts:
+        - mountPath: /rucio
+          name: sense-clean-gen5-fs
+      restartPolicy: Always
+      volumes:
+      - hostPath:
+          path: /mnt/nvme
+        name: sense-clean-gen5-fs
