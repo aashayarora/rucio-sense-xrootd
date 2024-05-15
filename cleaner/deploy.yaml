@@ -46,4 +46,5 @@ spec:
       volumes:
       - hostPath:
           path: /mnt/nvme
+          type: Directory
         name: sense-clean-gen5-fs

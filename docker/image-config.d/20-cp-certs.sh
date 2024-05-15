@@ -1,4 +1,5 @@
-#!/bin/bash                                                                                                                                                                   
+#!/bin/bash
+                                                                                                                                                        
 CERT_DIR=/etc/grid-security/
 mkdir -p $CERT_DIR/xrd
 if [ -f $CERT_DIR/hostcert.pem ]; then

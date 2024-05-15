@@ -53,7 +53,7 @@ spec:
               cpu: 128
               memory: 800Gi
             requests:
-              cpu: 12
+              cpu: 10
               memory: 48Gi
           volumeMounts:
             - mountPath: /rucio
