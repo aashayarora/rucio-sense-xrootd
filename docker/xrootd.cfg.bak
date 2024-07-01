@@ -35,6 +35,8 @@ xrd.tls /etc/grid-security/xrd/xrdcert.pem /etc/grid-security/xrd/xrdkey.pem
 xrootd.tls capable all
 sec.protocol ztn
 
+ofs.tpc logok autorm pgm /etc/xrootd/xrdcp-tpc.sh
+
 setenv X509_USER_CERT = /etc/grid-security/xrd/xrdcert.pem 
 setenv X509_USER_KEY = /etc/grid-security/xrd/xrdkey.pem 
 
@@ -61,7 +63,7 @@ if exec cmsd
   cms.dfs lookup distrib mdhold 0 redirect immed
 fi
 
-# xrd.trace all
-# http.trace debug
-# ofs.trace all
-# cms.trace all debug
+#xrd.trace all
+#http.trace debug
+#ofs.trace all
+#cms.trace all debug

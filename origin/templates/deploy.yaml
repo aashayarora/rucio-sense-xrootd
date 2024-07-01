@@ -35,12 +35,6 @@ spec:
             value: "[IPV6_PLACEHOLDER]"
           - name: XRD_PORT
             value: "PORT_PLACEHOLDER"
-          - name: NUM_FILES
-            value: "12"
-          - name: NUM_SYMLINKS
-            value: "84"
-          - name: NUM_DATASETS
-            value: "40"
           image: aaarora/rucio-sense-xrootd:latest
           imagePullPolicy: Always
           ports:
