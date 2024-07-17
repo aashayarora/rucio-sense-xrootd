@@ -48,7 +48,7 @@ spec:
               memory: 800Gi
             requests:
               cpu: 10
-              memory: 48Gi
+              memory: 500Gi
           volumeMounts:
             - mountPath: /rucio
               name: cache-volume
@@ -69,9 +69,12 @@ spec:
       terminationGracePeriodSeconds: 30
       volumes:
         - name: cache-volume
-          hostPath:
-            path: /mnt/nvme
-            type: Directory
+          emptyDir:
+            medium: Memory
+            sizeLimit: 400Gi
+          # hostPath:
+          #   path: /mnt/nvme
+          #   type: Directory
         - name: certs
           secret:
             secretName: CERTS_PLACEHOLDER

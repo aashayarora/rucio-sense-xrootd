@@ -1,0 +1,72 @@
+{{- range $clusterName, $cluster := .Values.clusters }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $cluster.redirector.name }}
+  labels:
+    app: {{ $cluster.redirector.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $cluster.redirector.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $cluster.redirector.name }}
+      annotations:
+        k8s.v1.cni.cncf.io/networks:
+            '[{ 
+                    "name": "{{ $cluster.redirector.multus }}",
+                    "ips": ["{{ $cluster.redirector.iprange }}"],
+                    "mac": "{{ $cluster.redirector.mac }}",
+                    "gateway": ["{{ $cluster.redirector.gateway }}"]
+            }]'
+    spec:
+      containers:
+        - env:
+          - name: NET_GATEWAY
+            value: "GATEWAY_PLACEHOLDER"
+          - name: REDI_HOST
+            value: {{ $cluster.redirector.ip }}
+          - name: REDIRECTOR
+            value: "1"
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          ports:
+            - containerPort: 1094
+            - containerPort: 1213
+          name: {{ $cluster.redirector.name }}
+          securityContext:
+            privileged: True
+          resources:
+            {{- toYaml $.Values.redi-resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /mnt
+              name: ephemeral
+            - mountPath: /etc/grid-security/hostcert.pem
+              name: certs
+              subPath: hostcert.pem
+            - mountPath: /etc/grid-security/hostkey.pem
+              name: certs
+              subPath: hostcert.key.pem
+            - mountPath: /etc/xrootd/macaroon-secret
+              name: certs
+              subPath: macaroon-secret
+      nodeSelector:
+        kubernetes.io/hostname: {{ $cluster.redirector.node }}
+      volumes:
+        - name: ephemeral
+          emptyDir: {}
+        - name: certs
+          secret:
+            secretName: {{ $cluster.redirector.certs }}
+            items:
+              - key: hostcert.pem
+                path: hostcert.pem
+              - key: hostcert.key.pem
+                path: hostcert.key.pem
+              - key: macaroon-secret
+                path: macaroon-secret
+            defaultMode: 0644
+---
+{{- end }}

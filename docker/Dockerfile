@@ -1,4 +1,4 @@
-FROM opensciencegrid/software-base:3.6-el7-release
+FROM opensciencegrid/software-base:3.6-el9-release
 
 RUN yum -y install vim iproute xrootd xrootd-server xrootd-libs xrootd-server-libs xrootd-client \
     xrootd-client-libs xrootd-scitokens python3-scitokens gfal2-plugin-xrootd \
@@ -12,9 +12,7 @@ COPY grid-mapfile /etc/grid-security/grid-mapfile
 COPY auth-file /etc/xrootd/auth-file
 
 RUN mkdir -p /etc/grid-security/vomsdir/cms/
-COPY voms/lcg-voms2.cern.ch.lsc /etc/grid-security/vomsdir/cms/lcg-voms2.cern.ch.lsc
 COPY voms/voms-cms-auth.app.cern.ch.lsc /etc/grid-security/vomsdir/cms/voms-cms-auth.app.cern.ch.lsc
-COPY voms/voms2.cern.ch.lsc /etc/grid-security/vomsdir/cms/voms2.cern.ch.lsc
 COPY voms/voms-mapfile /etc/grid-security/voms-mapfile
 
 COPY supervisord.conf /etc/supervisord.d/10-xrootd.conf
