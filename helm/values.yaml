@@ -6,7 +6,7 @@ image:
   repository: aaarora/rucio-sense-xrootd
   pullPolicy: Always
 
-redi-resources:
+rediresources:
   limits:
     cpu: 128
     memory: 128Gi
@@ -14,7 +14,7 @@ redi-resources:
     cpu: 8
     memory: 32Gi
 
-origin-resources:
+originresources:
   limits:
     cpu: 128
     memory: 128Gi

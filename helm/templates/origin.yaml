@@ -38,7 +38,7 @@ spec:
           securityContext:
             privileged: True
           resources:
-            {{- toYaml $.Values.origin-resources | nindent 12 }}
+            {{- toYaml $.Values.originresources | nindent 12 }}
           volumeMounts:
             - mountPath: /rucio
               name: cache-volume

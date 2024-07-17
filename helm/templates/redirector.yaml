@@ -25,7 +25,7 @@ spec:
       containers:
         - env:
           - name: NET_GATEWAY
-            value: "GATEWAY_PLACEHOLDER"
+            value: {{ $cluster.redirector.gateway }}
           - name: REDI_HOST
             value: {{ $cluster.redirector.ip }}
           - name: REDIRECTOR
@@ -39,7 +39,7 @@ spec:
           securityContext:
             privileged: True
           resources:
-            {{- toYaml $.Values.redi-resources | nindent 12 }}
+            {{- toYaml $.Values.rediresources | nindent 12 }}
           volumeMounts:
             - mountPath: /mnt
               name: ephemeral
