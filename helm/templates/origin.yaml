@@ -18,18 +18,18 @@ spec:
       annotations:
         k8s.v1.cni.cncf.io/networks:
             '[{ 
-                    "name": {{ $origin.multus }},
-                    "ips": [{{ $origin.iprange }}],
-                    "mac": {{ $origin.mac }},
-                    "gateway": [{{ $origin.gateway }}]
+                    "name": "{{ $origin.multus }}"",
+                    "ips": ["{{ $origin.iprange }}"],
+                    "mac": "{{ $origin.mac }}",
+                    "gateway": ["{{ $origin.gateway }}"]
             }]'
     spec:
       containers:
         - env:
           - name: NET_GATEWAY
-            value: {{ $origin.gateway }}
+            value: "{{ $origin.gateway }}"
           - name: REDI_HOST
-            value: {{ $cluster.redirector.ip }}
+            value: "[{{ $cluster.redirector.ip }}]"
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           ports:

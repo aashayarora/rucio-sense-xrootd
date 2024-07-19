@@ -5,6 +5,7 @@
 image:
   repository: aaarora/rucio-sense-xrootd
   pullPolicy: Always
+  tag: latest
 
 rediresources:
   limits:
@@ -34,6 +35,7 @@ clusters:
       ip: "2001:48d0:3001:111::800"
       node: "k8s-gen5-01.sdsc.optiputer.net"
       certs: "certs-800"
+
     origins:
       - name: origin-111-400
         multus: "multus111"
@@ -43,6 +45,7 @@ clusters:
         ip: "2001:48d0:3001:111::400"
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-400"
+
       - name: origin-111-500
         multus: "multus111"
         iprange: "2001:48d0:3001:111::500/64"
@@ -51,6 +54,7 @@ clusters:
         ip: "2001:48d0:3001:111::500"
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-500"
+      
       - name: origin-111-600
         multus: "multus111"
         iprange: "2001:48d0:3001:111::600/64"
@@ -59,6 +63,7 @@ clusters:
         ip: "2001:48d0:3001:111::600"
         node: "k8s-gen5-02.sdsc.optiputer.net"
         certs: "certs-600"
+      
       - name: origin-111-700
         multus: "multus111"
         iprange: "2001:48d0:3001:111::700/64"
@@ -67,6 +72,7 @@ clusters:
         ip: "2001:48d0:3001:111::700"
         node: "k8s-gen5-02.sdsc.optiputer.net"
         certs: "certs-700"
+
   #### 112 ####
   cluster-112:
     redirector:
@@ -78,39 +84,44 @@ clusters:
       ip: "2001:48d0:3001:112::800"
       node: "k8s-gen5-02.sdsc.optiputer.net"
       certs: "certs-800"
+
     origins:
-    - name: origin-112-400
-      multus: "multus112"
-      iprange: "2001:48d0:3001:112::400/64"
-      mac: "e6:ba:06:08:4d:13"
-      gateway: "2001:48d0:3001:112::1"
-      ip: "2001:48d0:3001:112::400"
-      node: "k8s-gen5-01.sdsc.optiputer.net"
-      certs: "certs-400"
-    - name: origin-112-500
-      multus: "multus112"
-      iprange: "2001:48d0:3001:112::500/64"
-      mac: "be:c5:c0:e7:a1:d2"
-      gateway: "2001:48d0:3001:112::1"
-      ip: "2001:48d0:3001:112::500"
-      node: "k8s-gen5-01.sdsc.optiputer.net"
-      certs: "certs-500"
-    - name: origin-112-600
-      multus: "multus112"
-      iprange: "2001:48d0:3001:112::600/64"
-      mac: "8a:d5:97:75:18:91"
-      gateway: "2001:48d0:3001:112::1"
-      ip: "2001:48d0:3001:112::600"
-      node: "k8s-gen5-02.sdsc.optiputer.net"
-      certs: "certs-600"
-    - name: origin-112-700
-      multus: "multus112"
-      iprange: "2001:48d0:3001:112::700/64"
-      mac: "9e:b7:d5:eb:f1:0f"
-      gateway: "2001:48d0:3001:112::1"
-      ip: "2001:48d0:3001:112::700"
-      node: "k8s-gen5-02.sdsc.optiputer.net"
-      certs: "certs-700"
+      - name: origin-112-400
+        multus: "multus112"
+        iprange: "2001:48d0:3001:112::400/64"
+        mac: "e6:ba:06:08:4d:13"
+        gateway: "2001:48d0:3001:112::1"
+        ip: "2001:48d0:3001:112::400"
+        node: "k8s-gen5-01.sdsc.optiputer.net"
+        certs: "certs-400"
+
+      - name: origin-112-500
+        multus: "multus112"
+        iprange: "2001:48d0:3001:112::500/64"
+        mac: "be:c5:c0:e7:a1:d2"
+        gateway: "2001:48d0:3001:112::1"
+        ip: "2001:48d0:3001:112::500"
+        node: "k8s-gen5-01.sdsc.optiputer.net"
+        certs: "certs-500"
+
+      - name: origin-112-600
+        multus: "multus112"
+        iprange: "2001:48d0:3001:112::600/64"
+        mac: "8a:d5:97:75:18:91"
+        gateway: "2001:48d0:3001:112::1"
+        ip: "2001:48d0:3001:112::600"
+        node: "k8s-gen5-02.sdsc.optiputer.net"
+        certs: "certs-600"
+
+      - name: origin-112-700
+        multus: "multus112"
+        iprange: "2001:48d0:3001:112::700/64"
+        mac: "9e:b7:d5:eb:f1:0f"
+        gateway: "2001:48d0:3001:112::1"
+        ip: "2001:48d0:3001:112::700"
+        node: "k8s-gen5-02.sdsc.optiputer.net"
+        certs: "certs-700"
+
   #### 113 ####
   cluster-113:
     redirector:
@@ -122,39 +133,44 @@ clusters:
       ip: "2001:48d0:3001:113::800"
       node: "k8s-gen5-01.sdsc.optiputer.net"
       certs: "certs-800"
+
     origins:
-    - name: origin-113-400
-      multus: "multus113"
-      iprange: "2001:48d0:3001:113::400/64"
-      mac: "e6:b1:06:08:4d:13"
-      gateway: "2001:48d0:3001:113::1"
-      ip: "2001:48d0:3001:113::400"
-      node: "k8s-gen5-01.sdsc.optiputer.net"
-      certs: "certs-400"
-    - name: origin-113-500
-      multus: "multus113"
-      iprange: "2001:48d0:3001:113::500/64"
-      mac: "be:c6:c0:e7:a1:d2"
-      gateway: "2001:48d0:3001:113::1"
-      ip: "2001:48d0:3001:113::500"
-      node: "k8s-gen5-01.sdsc.optiputer.net"
-      certs: "certs-500"
-    - name: origin-113-600
-      multus: "multus113"
-      iprange: "2001:48d0:3001:113::600/64"
-      mac: "8a:d5:93:75:18:91"
-      gateway: "2001:48d0:3001:113::1"
-      ip: "2001:48d0:3001:113::600"
-      node: "k8s-gen5-02.sdsc.optiputer.net"
-      certs: "certs-600"
-    - name: origin-113-700
-      multus: "multus113"
-      iprange: "2001:48d0:3001:113::700/64"
-      mac: "9e:b7:d5:eb:f3:0f"
-      gateway: "2001:48d0:3001:113::1"
-      ip: "2001:48d0:3001:113::700"
-      node: "k8s-gen5-02.sdsc.optiputer.net"
-      certs: "certs-700"
+      - name: origin-113-400
+        multus: "multus113"
+        iprange: "2001:48d0:3001:113::400/64"
+        mac: "e6:b1:06:08:4d:13"
+        gateway: "2001:48d0:3001:113::1"
+        ip: "2001:48d0:3001:113::400"
+        node: "k8s-gen5-01.sdsc.optiputer.net"
+        certs: "certs-400"
+
+      - name: origin-113-500
+        multus: "multus113"
+        iprange: "2001:48d0:3001:113::500/64"
+        mac: "be:c6:c0:e7:a1:d2"
+        gateway: "2001:48d0:3001:113::1"
+        ip: "2001:48d0:3001:113::500"
+        node: "k8s-gen5-01.sdsc.optiputer.net"
+        certs: "certs-500"
+
+      - name: origin-113-600
+        multus: "multus113"
+        iprange: "2001:48d0:3001:113::600/64"
+        mac: "8a:d5:93:75:18:91"
+        gateway: "2001:48d0:3001:113::1"
+        ip: "2001:48d0:3001:113::600"
+        node: "k8s-gen5-02.sdsc.optiputer.net"
+        certs: "certs-600"
+      - name: origin-113-700
+
+        multus: "multus113"
+        iprange: "2001:48d0:3001:113::700/64"
+        mac: "9e:b7:d5:eb:f3:0f"
+        gateway: "2001:48d0:3001:113::1"
+        ip: "2001:48d0:3001:113::700"
+        node: "k8s-gen5-02.sdsc.optiputer.net"
+        certs: "certs-700"
+
   #### 114 ####
   cluster-114:
     redirector:
@@ -166,36 +182,40 @@ clusters:
       ip: "2001:48d0:3001:114::800"
       node: "k8s-gen5-02.sdsc.optiputer.net"
       certs: "certs-800"
+
     origins:
-    - name: origin-114-400
-      multus: "multus114"
-      iprange: "2001:48d0:3001:114::400/64"
-      mac: "e6:ba:06:02:4d:13"
-      gateway: "2001:48d0:3001:114::1"
-      ip: "2001:48d0:3001:114::400"
-      node: "k8s-gen5-01.sdsc.optiputer.net"
-      certs: "certs-400"
-    - name: origin-114-500
-      multus: "multus114"
-      iprange: "2001:48d0:3001:114::500/64"
-      mac: "a8:c5:c0:e7:a1:d2"
-      gateway: "2001:48d0:3001:114::1"
-      ip: "2001:48d0:3001:114::500"
-      node: "k8s-gen5-01.sdsc.optiputer.net"
-      certs: "certs-500"
-    - name: origin-114-600
-      multus: "multus114"
-      iprange: "2001:48d0:3001:114::600/64"
-      mac: "8a:d5:97:75:38:91"
-      gateway: "2001:48d0:3001:114::1"
-      ip: "2001:48d0:3001:114::600"
-      node: "k8s-gen5-02.sdsc.optiputer.net"
-      certs: "certs-600"
-    - name: origin-114-700
-      multus: "multus114"
-      iprange: "2001:48d0:3001:114::700/64"
-      mac: "9e:b7:d5:fb:f1:0f"
-      gateway: "2001:48d0:3001:114::1"
-      ip: "2001:48d0:3001:114::700"
-      node: "k8s-gen5-02.sdsc.optiputer.net"
-      certs: "certs-700"
+      - name: origin-114-400
+        multus: "multus114"
+        iprange: "2001:48d0:3001:114::400/64"
+        mac: "e6:ba:06:02:4d:13"
+        gateway: "2001:48d0:3001:114::1"
+        ip: "2001:48d0:3001:114::400"
+        node: "k8s-gen5-01.sdsc.optiputer.net"
+        certs: "certs-400"
+
+      - name: origin-114-500
+        multus: "multus114"
+        iprange: "2001:48d0:3001:114::500/64"
+        mac: "a8:c5:c0:e7:a1:d2"
+        gateway: "2001:48d0:3001:114::1"
+        ip: "2001:48d0:3001:114::500"
+        node: "k8s-gen5-01.sdsc.optiputer.net"
+        certs: "certs-500"
+
+      - name: origin-114-600
+        multus: "multus114"
+        iprange: "2001:48d0:3001:114::600/64"
+        mac: "8a:d5:97:75:38:91"
+        gateway: "2001:48d0:3001:114::1"
+        ip: "2001:48d0:3001:114::600"
+        node: "k8s-gen5-02.sdsc.optiputer.net"
+        certs: "certs-600"
+
+      - name: origin-114-700
+        multus: "multus114"
+        iprange: "2001:48d0:3001:114::700/64"
+        mac: "9e:b7:d5:fb:f1:0f"
+        gateway: "2001:48d0:3001:114::1"
+        ip: "2001:48d0:3001:114::700"
+        node: "k8s-gen5-02.sdsc.optiputer.net"
+        certs: "certs-700"

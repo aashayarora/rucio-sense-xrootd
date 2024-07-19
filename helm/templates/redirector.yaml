@@ -25,9 +25,9 @@ spec:
       containers:
         - env:
           - name: NET_GATEWAY
-            value: {{ $cluster.redirector.gateway }}
+            value: "{{ $cluster.redirector.gateway }}"
           - name: REDI_HOST
-            value: {{ $cluster.redirector.ip }}
+            value: "[{{ $cluster.redirector.ip }}]"
           - name: REDIRECTOR
             value: "1"
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
