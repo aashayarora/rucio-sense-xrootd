@@ -22,11 +22,15 @@ spec:
                     "gateway": ["{{ $cluster.redirector.gateway }}"]
             }]'
     spec:
+      tolerations:
+        {{- toYaml $.Values.tolerations | nindent 8 }}
       containers:
         - env:
           - name: NET_GATEWAY
             value: "{{ $cluster.redirector.gateway }}"
           - name: REDI_HOST
+            value: "[{{ $cluster.redirector.ip }}]"
+          - name: XRD_HOST
             value: "[{{ $cluster.redirector.ip }}]"
           - name: REDIRECTOR
             value: "1"
@@ -36,10 +40,8 @@ spec:
             - containerPort: 1094
             - containerPort: 1213
           name: {{ $cluster.redirector.name }}
-          securityContext:
-            privileged: True
           resources:
-            {{- toYaml $.Values.rediresources | nindent 12 }}
+            {{- toYaml $.Values.rediResources | nindent 12 }}
           volumeMounts:
             - mountPath: /mnt
               name: ephemeral

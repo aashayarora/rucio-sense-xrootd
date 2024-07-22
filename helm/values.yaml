@@ -7,7 +7,16 @@ image:
   pullPolicy: Always
   tag: latest
 
-rediresources:
+tolerations:
+  - key: "nautilus.io/sense"
+    operator: "Exists"
+    effect: "NoSchedule"
+
+storagePath:
+  persistentVolumeClaim:
+    claimName: osg-gen5-nvme  
+
+rediResources:
   limits:
     cpu: 128
     memory: 128Gi
@@ -15,7 +24,7 @@ rediresources:
     cpu: 8
     memory: 32Gi
 
-originresources:
+originResources:
   limits:
     cpu: 128
     memory: 128Gi

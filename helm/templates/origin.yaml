@@ -18,27 +18,29 @@ spec:
       annotations:
         k8s.v1.cni.cncf.io/networks:
             '[{ 
-                    "name": "{{ $origin.multus }}"",
+                    "name": "{{ $origin.multus }}",
                     "ips": ["{{ $origin.iprange }}"],
                     "mac": "{{ $origin.mac }}",
                     "gateway": ["{{ $origin.gateway }}"]
             }]'
     spec:
+      tolerations:
+        {{- toYaml $.Values.tolerations | nindent 8 }}
       containers:
         - env:
           - name: NET_GATEWAY
             value: "{{ $origin.gateway }}"
           - name: REDI_HOST
             value: "[{{ $cluster.redirector.ip }}]"
+          - name: XRD_HOST
+            value: "[{{ $origin.ip }}]"
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           ports:
             - containerPort: 1094
           name: {{ $origin.name }}
-          securityContext:
-            privileged: True
           resources:
-            {{- toYaml $.Values.originresources | nindent 12 }}
+            {{- toYaml $.Values.originResources | nindent 12 }}
           volumeMounts:
             - mountPath: /rucio
               name: cache-volume
@@ -55,9 +57,7 @@ spec:
         kubernetes.io/hostname: {{ $origin.node }}
       volumes:
         - name: cache-volume
-          hostPath:
-            path: /mnt/nvme
-            type: Directory
+          {{- toYaml $.Values.storagePath | nindent 10 }}
         - name: certs
           secret:
             secretName: {{ $origin.certs }}
