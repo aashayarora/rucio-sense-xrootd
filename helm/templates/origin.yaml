@@ -27,18 +27,22 @@ spec:
       tolerations:
         {{- toYaml $.Values.tolerations | nindent 8 }}
       containers:
-        - env:
-          - name: NET_GATEWAY
-            value: "{{ $origin.gateway }}"
-          - name: REDI_HOST
-            value: "[{{ $cluster.redirector.ip }}]"
-          - name: XRD_HOST
-            value: "[{{ $origin.ip }}]"
+        - name: {{ $origin.name }}
           image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
           ports:
             - containerPort: 1094
-          name: {{ $origin.name }}
+          env:
+            - name: NET_GATEWAY
+              value: "{{ $origin.gateway }}"
+            - name: REDI_HOST
+              value: "[{{ $cluster.redirector.ip }}]"
+            - name: XRD_HOST
+              value: "[{{ $origin.ip }}]"
           resources:
             {{- toYaml $.Values.originResources | nindent 12 }}
           volumeMounts:

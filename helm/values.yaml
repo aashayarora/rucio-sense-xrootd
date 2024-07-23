@@ -39,7 +39,7 @@ clusters:
       name: redirector-111
       multus: "multus111"
       iprange: "2001:48d0:3001:111::800/64"
-      mac: "56:25:24:23:4f:49"
+      mac: "56:37:2d:c6:e1:3a"
       gateway: "2001:48d0:3001:111::1"
       ip: "2001:48d0:3001:111::800"
       node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -49,7 +49,7 @@ clusters:
       - name: origin-111-400
         multus: "multus111"
         iprange: "2001:48d0:3001:111::400/64"
-        mac: "4a:63:d1:f8:02:56"
+        mac: "92:da:29:72:b9:ed"
         gateway: "2001:48d0:3001:111::1"
         ip: "2001:48d0:3001:111::400"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -58,7 +58,7 @@ clusters:
       - name: origin-111-500
         multus: "multus111"
         iprange: "2001:48d0:3001:111::500/64"
-        mac: "be:17:3d:9c:45:df"
+        mac: "7a:b5:bb:e0:62:2e"
         gateway: "2001:48d0:3001:111::1"
         ip: "2001:48d0:3001:111::500"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -67,7 +67,7 @@ clusters:
       - name: origin-111-600
         multus: "multus111"
         iprange: "2001:48d0:3001:111::600/64"
-        mac: "ce:9d:1c:86:79:60"
+        mac: "6e:1f:29:96:7d:07"
         gateway: "2001:48d0:3001:111::1"
         ip: "2001:48d0:3001:111::600"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -76,7 +76,7 @@ clusters:
       - name: origin-111-700
         multus: "multus111"
         iprange: "2001:48d0:3001:111::700/64"
-        mac: "76:22:27:ed:2a:f7"
+        mac: "ce:74:a0:ef:14:fa"
         gateway: "2001:48d0:3001:111::1"
         ip: "2001:48d0:3001:111::700"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -88,7 +88,7 @@ clusters:
       name: redirector-112
       multus: "multus112"
       iprange: "2001:48d0:3001:112::800/64"
-      mac: "06:a5:af:ef:3c:de"
+      mac: "72:ec:41:e1:5d:59"
       gateway: "2001:48d0:3001:112::1"
       ip: "2001:48d0:3001:112::800"
       node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -98,7 +98,7 @@ clusters:
       - name: origin-112-400
         multus: "multus112"
         iprange: "2001:48d0:3001:112::400/64"
-        mac: "e6:ba:06:08:4d:13"
+        mac: "aa:c6:83:09:ef:59"
         gateway: "2001:48d0:3001:112::1"
         ip: "2001:48d0:3001:112::400"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -107,7 +107,7 @@ clusters:
       - name: origin-112-500
         multus: "multus112"
         iprange: "2001:48d0:3001:112::500/64"
-        mac: "be:c5:c0:e7:a1:d2"
+        mac: "c6:9b:3a:4f:9d:6e"
         gateway: "2001:48d0:3001:112::1"
         ip: "2001:48d0:3001:112::500"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -116,7 +116,7 @@ clusters:
       - name: origin-112-600
         multus: "multus112"
         iprange: "2001:48d0:3001:112::600/64"
-        mac: "8a:d5:97:75:18:91"
+        mac: "6e:b1:f3:76:0d:8d"
         gateway: "2001:48d0:3001:112::1"
         ip: "2001:48d0:3001:112::600"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -125,7 +125,7 @@ clusters:
       - name: origin-112-700
         multus: "multus112"
         iprange: "2001:48d0:3001:112::700/64"
-        mac: "9e:b7:d5:eb:f1:0f"
+        mac: "de:b7:26:47:b1:09"
         gateway: "2001:48d0:3001:112::1"
         ip: "2001:48d0:3001:112::700"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -137,7 +137,7 @@ clusters:
       name: redirector-113
       multus: "multus113"
       iprange: "2001:48d0:3001:113::800/64"
-      mac: "56:25:24:23:4f:49"
+      mac: "ea:f2:00:32:b9:40"
       gateway: "2001:48d0:3001:113::1"
       ip: "2001:48d0:3001:113::800"
       node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -147,7 +147,7 @@ clusters:
       - name: origin-113-400
         multus: "multus113"
         iprange: "2001:48d0:3001:113::400/64"
-        mac: "e6:b1:06:08:4d:13"
+        mac: "c6:8f:af:f9:56:55"
         gateway: "2001:48d0:3001:113::1"
         ip: "2001:48d0:3001:113::400"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -156,7 +156,7 @@ clusters:
       - name: origin-113-500
         multus: "multus113"
         iprange: "2001:48d0:3001:113::500/64"
-        mac: "be:c6:c0:e7:a1:d2"
+        mac: "6a:55:61:be:c8:f3"
         gateway: "2001:48d0:3001:113::1"
         ip: "2001:48d0:3001:113::500"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -165,7 +165,7 @@ clusters:
       - name: origin-113-600
         multus: "multus113"
         iprange: "2001:48d0:3001:113::600/64"
-        mac: "8a:d5:93:75:18:91"
+        mac: "b2:0d:39:3e:1d:89"
         gateway: "2001:48d0:3001:113::1"
         ip: "2001:48d0:3001:113::600"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -174,7 +174,7 @@ clusters:
 
         multus: "multus113"
         iprange: "2001:48d0:3001:113::700/64"
-        mac: "9e:b7:d5:eb:f3:0f"
+        mac: "2e:c0:ca:a4:a5:92"
         gateway: "2001:48d0:3001:113::1"
         ip: "2001:48d0:3001:113::700"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -186,7 +186,7 @@ clusters:
       name: redirector-114
       multus: "multus114"
       iprange: "2001:48d0:3001:114::800/64"
-      mac: "06:a5:af:ef:3c:de"
+      mac: "ba:59:b5:c2:a9:1a"
       gateway: "2001:48d0:3001:114::1"
       ip: "2001:48d0:3001:114::800"
       node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -196,7 +196,7 @@ clusters:
       - name: origin-114-400
         multus: "multus114"
         iprange: "2001:48d0:3001:114::400/64"
-        mac: "e6:ba:06:02:4d:13"
+        mac: "e6:b5:0a:f1:98:29"
         gateway: "2001:48d0:3001:114::1"
         ip: "2001:48d0:3001:114::400"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -205,7 +205,7 @@ clusters:
       - name: origin-114-500
         multus: "multus114"
         iprange: "2001:48d0:3001:114::500/64"
-        mac: "a8:c5:c0:e7:a1:d2"
+        mac: "66:bc:3c:23:6d:ce"
         gateway: "2001:48d0:3001:114::1"
         ip: "2001:48d0:3001:114::500"
         node: "k8s-gen5-01.sdsc.optiputer.net"
@@ -214,7 +214,7 @@ clusters:
       - name: origin-114-600
         multus: "multus114"
         iprange: "2001:48d0:3001:114::600/64"
-        mac: "8a:d5:97:75:38:91"
+        mac: "96:ba:38:aa:f4:cc"
         gateway: "2001:48d0:3001:114::1"
         ip: "2001:48d0:3001:114::600"
         node: "k8s-gen5-02.sdsc.optiputer.net"
@@ -223,7 +223,7 @@ clusters:
       - name: origin-114-700
         multus: "multus114"
         iprange: "2001:48d0:3001:114::700/64"
-        mac: "9e:b7:d5:fb:f1:0f"
+        mac: "56:c2:f4:a3:9a:f5"
         gateway: "2001:48d0:3001:114::1"
         ip: "2001:48d0:3001:114::700"
         node: "k8s-gen5-02.sdsc.optiputer.net"

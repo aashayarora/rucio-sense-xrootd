@@ -1,37 +1,31 @@
 ---
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   labels:
-    k8s-app: sense-clean-gen5
-  name: sense-clean-gen5
+    app: sense-clean-gen5-01
+  name: sense-clean-gen5-01
   namespace: osg-gil
 spec:
   selector:
     matchLabels:
-      k8s-app: sense-clean-gen5
+      app: sense-clean-gen5-01
   template:
     metadata:
       labels:
-        k8s-app: sense-clean-gen5
+        app: sense-clean-gen5-01
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: kubernetes.io/hostname
-                operator: In
-                values:
-                - "k8s-gen5-01.sdsc.optiputer.net"
-                - "k8s-gen5-02.sdsc.optiputer.net"
+      tolerations:
+      - key: "nautilus.io/sense"
+        operator: "Exists"
+        effect: "NoSchedule"
       containers:
-      - env:
-        - name: SENSE_CLEANUP
-          value: '1'
+      - name: sense-clean-gen5
         image: "aaarora/sense-cleaner:latest"
         imagePullPolicy: "Always"
-        name: sense-clean-gen5
+        env:
+        - name: SENSE_CLEANUP
+          value: '1'
         resources:
           limits:
             cpu: 1
@@ -44,7 +38,54 @@ spec:
           name: sense-clean-gen5-fs
       restartPolicy: Always
       volumes:
-      - hostPath:
-          path: /mnt/nvme
-          type: Directory
-        name: sense-clean-gen5-fs
+      - name: sense-clean-gen5-fs
+        persistentVolumeClaim:
+          claimName: osg-gen5-nvme  
+      nodeSelector: 
+        kubernetes.io/hostname: k8s-gen5-01.sdsc.optiputer.net
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sense-clean-gen5-02
+  name: sense-clean-gen5-02
+  namespace: osg-gil
+spec:
+  selector:
+    matchLabels:
+      app: sense-clean-gen5-02
+  template:
+    metadata:
+      labels:
+        app: sense-clean-gen5-02
+    spec:
+      tolerations:
+      - key: "nautilus.io/sense"
+        operator: "Exists"
+        effect: "NoSchedule"
+      containers:
+      - name: sense-clean-gen5
+        image: "aaarora/sense-cleaner:latest"
+        imagePullPolicy: "Always"
+        env:
+        - name: SENSE_CLEANUP
+          value: '1'
+        resources:
+          limits:
+            cpu: 1
+            memory: "1Gi"
+          requests:
+            cpu: "100m"
+            memory: "50Mi"
+        volumeMounts:
+        - mountPath: /rucio
+          name: sense-clean-gen5-fs
+      restartPolicy: Always
+      volumes:
+      - name: sense-clean-gen5-fs
+        persistentVolumeClaim:
+          claimName: osg-gen5-nvme 
+      nodeSelector: 
+        kubernetes.io/hostname: k8s-gen5-02.sdsc.optiputer.net
+      

@@ -25,7 +25,17 @@ spec:
       tolerations:
         {{- toYaml $.Values.tolerations | nindent 8 }}
       containers:
-        - env:
+        - name: {{ $cluster.redirector.name }}
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          ports:
+            - containerPort: 1094
+            - containerPort: 1213
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          env:
           - name: NET_GATEWAY
             value: "{{ $cluster.redirector.gateway }}"
           - name: REDI_HOST
@@ -34,12 +44,6 @@ spec:
             value: "[{{ $cluster.redirector.ip }}]"
           - name: REDIRECTOR
             value: "1"
-          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
-          imagePullPolicy: {{ $.Values.image.pullPolicy }}
-          ports:
-            - containerPort: 1094
-            - containerPort: 1213
-          name: {{ $cluster.redirector.name }}
           resources:
             {{- toYaml $.Values.rediResources | nindent 12 }}
           volumeMounts:
