@@ -1,4 +1,4 @@
-FROM opensciencegrid/software-base:3.6-el9-release
+FROM opensciencegrid/software-base:3.6-el8-release
 
 RUN yum -y install vim iproute xrootd xrootd-server xrootd-libs xrootd-server-libs xrootd-client \
     xrootd-client-libs xrootd-scitokens python3-scitokens gfal2-plugin-xrootd \
