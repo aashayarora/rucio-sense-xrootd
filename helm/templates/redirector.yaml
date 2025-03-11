@@ -18,7 +18,9 @@ spec:
             '[{ 
                     "name": "{{ $cluster.redirector.multus }}",
                     "ips": ["{{ $cluster.redirector.iprange }}"],
+                    {{- if $cluster.redirector.mac }}
                     "mac": "{{ $cluster.redirector.mac }}",
+                    {{- end }}
                     "gateway": ["{{ $cluster.redirector.gateway }}"]
             }]'
     spec:
@@ -42,6 +44,10 @@ spec:
             value: "[{{ $cluster.redirector.ip }}]"
           - name: XRD_HOST
             value: "[{{ $cluster.redirector.ip }}]"
+          - name: K8S_HOST
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
           - name: REDIRECTOR
             value: "1"
           resources:

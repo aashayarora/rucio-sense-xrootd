@@ -20,7 +20,9 @@ spec:
             '[{ 
                     "name": "{{ $origin.multus }}",
                     "ips": ["{{ $origin.iprange }}"],
+                    {{- if $origin.mac }}
                     "mac": "{{ $origin.mac }}",
+                    {{- end }}
                     "gateway": ["{{ $origin.gateway }}"]
             }]'
     spec:
@@ -43,6 +45,10 @@ spec:
               value: "[{{ $cluster.redirector.ip }}]"
             - name: XRD_HOST
               value: "[{{ $origin.ip }}]"
+            - name: K8S_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
           resources:
             {{- toYaml $.Values.originResources | nindent 12 }}
           volumeMounts:
