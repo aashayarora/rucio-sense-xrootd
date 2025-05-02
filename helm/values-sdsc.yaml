@@ -12,7 +12,7 @@ tolerations:
     operator: "Exists"
     effect: "NoSchedule"
 
-storagePath:
+storagePath: # storage mounted at /rucio
   persistentVolumeClaim:
     claimName: osg-gen5-nvme  
 

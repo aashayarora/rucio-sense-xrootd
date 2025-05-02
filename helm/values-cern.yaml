@@ -1,0 +1,142 @@
+# Default values for rucio.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: aaarora/rucio-sense-xrootd
+  pullPolicy: Always
+  tag: latest
+
+tolerations:
+  - key: "nautilus.io/sense"
+    operator: "Exists"
+    effect: "NoSchedule"
+
+storagePath: # storage mounted at /rucio
+  emptyDir:
+    medium: Memory
+    sizeLimit: 128Gi
+
+rediResources:
+  limits:
+    cpu: 128
+    memory: 256Gi
+  requests:
+    cpu: 8
+    memory: 16Gi
+
+originResources:
+  limits:
+    cpu: 128
+    memory: 256Gi
+  requests:
+    cpu: 8
+    memory: 140Gi
+
+clusters:
+  cluster-fff1:
+    redirector:
+      name: redirector-fff1
+      multus: "cernfabricfff1"
+      iprange: "2602:fcfb:1d:fff1::5/64"
+      gateway: "2602:fcfb:1d:fff1::1"
+      mac: "c2:40:7d:cb:3f:76"
+      ip: "2602:fcfb:1d:fff1::5"
+      node: "ucsd-nrp.cern.ch"
+      certs: "certs-cern"
+    origins:
+      - name: origin-fff1-2
+        multus: "cernfabricfff1"
+        iprange: "2602:fcfb:1d:fff1::2/64"
+        gateway: "2602:fcfb:1d:fff1::1"
+        mac: "3a:50:46:3c:fa:a1"
+        ip: "2602:fcfb:1d:fff1::2"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      - name: origin-fff1-3
+        multus: "cernfabricfff1"
+        iprange: "2602:fcfb:1d:fff1::3/64"
+        gateway: "2602:fcfb:1d:fff1::1"
+        mac: "6a:88:43:43:e6:6b"
+        ip: "2602:fcfb:1d:fff1::3"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      - name: origin-fff1-4
+        multus: "cernfabricfff1"
+        iprange: "2602:fcfb:1d:fff1::4/64"
+        gateway: "2602:fcfb:1d:fff1::1"
+        mac: "ae:79:36:b6:bb:bb"
+        ip: "2602:fcfb:1d:fff1::4"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+
+  cluster-fff2:
+    redirector:
+      name: redirector-fff2
+      multus: "cernfabricfff2"
+      iprange: "2602:fcfb:1d:fff2::5/64"
+      gateway: "2602:fcfb:1d:fff2::1"
+      mac: "aa:b7:de:ce:11:a7"
+      ip: "2602:fcfb:1d:fff2::5"
+      node: "ucsd-nrp.cern.ch"
+      certs: "certs-cern"
+    origins:
+      - name: origin-fff2-2
+        multus: "cernfabricfff2"
+        iprange: "2602:fcfb:1d:fff2::2/64"
+        gateway: "2602:fcfb:1d:fff2::1"
+        mac: "f2:38:cc:73:61:e8"
+        ip: "2602:fcfb:1d:fff2::2"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      - name: origin-fff2-3
+        multus: "cernfabricfff2"
+        iprange: "2602:fcfb:1d:fff2::3/64"
+        gateway: "2602:fcfb:1d:fff2::1"
+        mac: "86:fa:3a:7b:82:4d"
+        ip: "2602:fcfb:1d:fff2::3"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      - name: origin-fff2-4
+        multus: "cernfabricfff2"
+        iprange: "2602:fcfb:1d:fff2::4/64"
+        gateway: "2602:fcfb:1d:fff2::1"
+        mac: "92:ad:71:0b:8d:bd"
+        ip: "2602:fcfb:1d:fff2::4"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"  
+  
+  cluster-fff3:
+    redirector:
+      name: redirector-fff3
+      multus: "cernfabricfff3"
+      iprange: "2602:fcfb:1d:fff3::5/64"
+      gateway: "2602:fcfb:1d:fff3::1"
+      ip: "2602:fcfb:1d:fff3::5"
+      node: "ucsd-nrp.cern.ch"
+      certs: "certs-cern"
+    origins:
+      - name: origin-fff3-2
+        multus: "cernfabricfff3"
+        iprange: "2602:fcfb:1d:fff3::2/64"
+        gateway: "2602:fcfb:1d:fff3::1"
+        mac: "96:63:ea:1b:0c:d6"
+        ip: "2602:fcfb:1d:fff3::2"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      - name: origin-fff3-3
+        multus: "cernfabricfff3"
+        iprange: "2602:fcfb:1d:fff3::3/64"
+        gateway: "2602:fcfb:1d:fff3::1"
+        mac: "62:51:43:93:dc:cb"
+        ip: "2602:fcfb:1d:fff3::3"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      - name: origin-fff3-4
+        multus: "cernfabricfff3"
+        iprange: "2602:fcfb:1d:fff3::4/64"
+        gateway: "2602:fcfb:1d:fff3::1"
+        ip: "2602:fcfb:1d:fff3::4"
+        node: "ucsd-nrp.cern.ch"
+        certs: "certs-cern"
+      
