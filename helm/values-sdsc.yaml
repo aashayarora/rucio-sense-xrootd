@@ -8,8 +8,9 @@ image:
   tag: latest
 
 tolerations:
-  - key: "nautilus.io/sense"
-    operator: "Exists"
+  - key: "nautilus.io/reservation"
+    value: "sense"
+    operator: "Equal"
     effect: "NoSchedule"
 
 storagePath: # storage mounted at /rucio
@@ -21,7 +22,7 @@ rediResources:
     cpu: 128
     memory: 128Gi
   requests:
-    cpu: 8
+    cpu: 4
     memory: 32Gi
 
 originResources:
@@ -29,14 +30,14 @@ originResources:
     cpu: 128
     memory: 128Gi
   requests:
-    cpu: 8
+    cpu: 6
     memory: 32Gi
 
 clusters:
   #### 111 ####
   cluster-111:
     redirector:
-      name: redirector-111
+      name: sdsc-redirector-111
       multus: "multus111"
       iprange: "2001:48d0:3001:111::800/64"
       mac: "56:37:2d:c6:e1:3a"
@@ -46,7 +47,7 @@ clusters:
       certs: "certs-800"
 
     origins:
-      - name: origin-111-400
+      - name: sdsc-origin-111-400
         multus: "multus111"
         iprange: "2001:48d0:3001:111::400/64"
         mac: "92:da:29:72:b9:ed"
@@ -55,7 +56,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-400"
 
-      - name: origin-111-500
+      - name: sdsc-origin-111-500
         multus: "multus111"
         iprange: "2001:48d0:3001:111::500/64"
         mac: "7a:b5:bb:e0:62:2e"
@@ -64,7 +65,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-500"
       
-      - name: origin-111-600
+      - name: sdsc-origin-111-600
         multus: "multus111"
         iprange: "2001:48d0:3001:111::600/64"
         mac: "6e:1f:29:96:7d:07"
@@ -73,7 +74,7 @@ clusters:
         node: "k8s-gen5-02.sdsc.optiputer.net"
         certs: "certs-600"
       
-      - name: origin-111-700
+      - name: sdsc-origin-111-700
         multus: "multus111"
         iprange: "2001:48d0:3001:111::700/64"
         mac: "ce:74:a0:ef:14:fa"
@@ -85,7 +86,7 @@ clusters:
   #### 112 ####
   cluster-112:
     redirector:
-      name: redirector-112
+      name: sdsc-redirector-112
       multus: "multus112"
       iprange: "2001:48d0:3001:112::800/64"
       mac: "72:ec:41:e1:5d:59"
@@ -95,7 +96,7 @@ clusters:
       certs: "certs-800"
 
     origins:
-      - name: origin-112-400
+      - name: sdsc-origin-112-400
         multus: "multus112"
         iprange: "2001:48d0:3001:112::400/64"
         mac: "aa:c6:83:09:ef:59"
@@ -104,7 +105,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-400"
 
-      - name: origin-112-500
+      - name: sdsc-origin-112-500
         multus: "multus112"
         iprange: "2001:48d0:3001:112::500/64"
         mac: "c6:9b:3a:4f:9d:6e"
@@ -113,7 +114,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-500"
 
-      - name: origin-112-600
+      - name: sdsc-origin-112-600
         multus: "multus112"
         iprange: "2001:48d0:3001:112::600/64"
         mac: "6e:b1:f3:76:0d:8d"
@@ -122,7 +123,7 @@ clusters:
         node: "k8s-gen5-02.sdsc.optiputer.net"
         certs: "certs-600"
 
-      - name: origin-112-700
+      - name: sdsc-origin-112-700
         multus: "multus112"
         iprange: "2001:48d0:3001:112::700/64"
         mac: "de:b7:26:47:b1:09"
@@ -134,7 +135,7 @@ clusters:
   #### 113 ####
   cluster-113:
     redirector:
-      name: redirector-113
+      name: sdsc-redirector-113
       multus: "multus113"
       iprange: "2001:48d0:3001:113::800/64"
       mac: "ea:f2:00:32:b9:40"
@@ -144,7 +145,7 @@ clusters:
       certs: "certs-800"
 
     origins:
-      - name: origin-113-400
+      - name: sdsc-origin-113-400
         multus: "multus113"
         iprange: "2001:48d0:3001:113::400/64"
         mac: "c6:8f:af:f9:56:55"
@@ -153,7 +154,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-400"
 
-      - name: origin-113-500
+      - name: sdsc-origin-113-500
         multus: "multus113"
         iprange: "2001:48d0:3001:113::500/64"
         mac: "6a:55:61:be:c8:f3"
@@ -162,7 +163,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-500"
 
-      - name: origin-113-600
+      - name: sdsc-origin-113-600
         multus: "multus113"
         iprange: "2001:48d0:3001:113::600/64"
         mac: "b2:0d:39:3e:1d:89"
@@ -170,7 +171,7 @@ clusters:
         ip: "2001:48d0:3001:113::600"
         node: "k8s-gen5-02.sdsc.optiputer.net"
         certs: "certs-600"
-      - name: origin-113-700
+      - name: sdsc-origin-113-700
 
         multus: "multus113"
         iprange: "2001:48d0:3001:113::700/64"
@@ -183,7 +184,7 @@ clusters:
   #### 114 ####
   cluster-114:
     redirector:
-      name: redirector-114
+      name: sdsc-redirector-114
       multus: "multus114"
       iprange: "2001:48d0:3001:114::800/64"
       mac: "ba:59:b5:c2:a9:1a"
@@ -193,7 +194,7 @@ clusters:
       certs: "certs-800"
 
     origins:
-      - name: origin-114-400
+      - name: sdsc-origin-114-400
         multus: "multus114"
         iprange: "2001:48d0:3001:114::400/64"
         mac: "e6:b5:0a:f1:98:29"
@@ -202,7 +203,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-400"
 
-      - name: origin-114-500
+      - name: sdsc-origin-114-500
         multus: "multus114"
         iprange: "2001:48d0:3001:114::500/64"
         mac: "66:bc:3c:23:6d:ce"
@@ -211,7 +212,7 @@ clusters:
         node: "k8s-gen5-01.sdsc.optiputer.net"
         certs: "certs-500"
 
-      - name: origin-114-600
+      - name: sdsc-origin-114-600
         multus: "multus114"
         iprange: "2001:48d0:3001:114::600/64"
         mac: "96:ba:38:aa:f4:cc"
@@ -220,7 +221,7 @@ clusters:
         node: "k8s-gen5-02.sdsc.optiputer.net"
         certs: "certs-600"
 
-      - name: origin-114-700
+      - name: sdsc-origin-114-700
         multus: "multus114"
         iprange: "2001:48d0:3001:114::700/64"
         mac: "56:c2:f4:a3:9a:f5"

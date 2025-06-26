@@ -26,6 +26,10 @@ spec:
                     "gateway": ["{{ $origin.gateway }}"]
             }]'
     spec:
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        nameservers:
+          - 8.8.8.8 
       tolerations:
         {{- toYaml $.Values.tolerations | nindent 8 }}
       containers:

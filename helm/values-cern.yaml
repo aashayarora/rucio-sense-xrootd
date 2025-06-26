@@ -8,8 +8,9 @@ image:
   tag: latest
 
 tolerations:
-  - key: "nautilus.io/sense"
-    operator: "Exists"
+  - key: "nautilus.io/reservation"
+    value: "sense"
+    operator: "Equal"
     effect: "NoSchedule"
 
 storagePath: # storage mounted at /rucio
@@ -22,7 +23,7 @@ rediResources:
     cpu: 128
     memory: 256Gi
   requests:
-    cpu: 8
+    cpu: 6
     memory: 16Gi
 
 originResources:
@@ -30,13 +31,13 @@ originResources:
     cpu: 128
     memory: 256Gi
   requests:
-    cpu: 8
+    cpu: 4
     memory: 140Gi
 
 clusters:
   cluster-fff1:
     redirector:
-      name: redirector-fff1
+      name: cern-redirector-fff1
       multus: "cernfabricfff1"
       iprange: "2602:fcfb:1d:fff1::5/64"
       gateway: "2602:fcfb:1d:fff1::1"
@@ -45,7 +46,7 @@ clusters:
       node: "ucsd-nrp.cern.ch"
       certs: "certs-cern"
     origins:
-      - name: origin-fff1-2
+      - name: cern-origin-fff1-2
         multus: "cernfabricfff1"
         iprange: "2602:fcfb:1d:fff1::2/64"
         gateway: "2602:fcfb:1d:fff1::1"
@@ -53,7 +54,7 @@ clusters:
         ip: "2602:fcfb:1d:fff1::2"
         node: "ucsd-nrp.cern.ch"
         certs: "certs-cern"
-      - name: origin-fff1-3
+      - name: cern-origin-fff1-3
         multus: "cernfabricfff1"
         iprange: "2602:fcfb:1d:fff1::3/64"
         gateway: "2602:fcfb:1d:fff1::1"
@@ -61,7 +62,7 @@ clusters:
         ip: "2602:fcfb:1d:fff1::3"
         node: "ucsd-nrp.cern.ch"
         certs: "certs-cern"
-      - name: origin-fff1-4
+      - name: cern-origin-fff1-4
         multus: "cernfabricfff1"
         iprange: "2602:fcfb:1d:fff1::4/64"
         gateway: "2602:fcfb:1d:fff1::1"
@@ -72,7 +73,7 @@ clusters:
 
   cluster-fff2:
     redirector:
-      name: redirector-fff2
+      name: cern-redirector-fff2
       multus: "cernfabricfff2"
       iprange: "2602:fcfb:1d:fff2::5/64"
       gateway: "2602:fcfb:1d:fff2::1"
@@ -81,7 +82,7 @@ clusters:
       node: "ucsd-nrp.cern.ch"
       certs: "certs-cern"
     origins:
-      - name: origin-fff2-2
+      - name: cern-origin-fff2-2
         multus: "cernfabricfff2"
         iprange: "2602:fcfb:1d:fff2::2/64"
         gateway: "2602:fcfb:1d:fff2::1"
@@ -89,7 +90,7 @@ clusters:
         ip: "2602:fcfb:1d:fff2::2"
         node: "ucsd-nrp.cern.ch"
         certs: "certs-cern"
-      - name: origin-fff2-3
+      - name: cern-origin-fff2-3
         multus: "cernfabricfff2"
         iprange: "2602:fcfb:1d:fff2::3/64"
         gateway: "2602:fcfb:1d:fff2::1"
@@ -97,7 +98,7 @@ clusters:
         ip: "2602:fcfb:1d:fff2::3"
         node: "ucsd-nrp.cern.ch"
         certs: "certs-cern"
-      - name: origin-fff2-4
+      - name: cern-origin-fff2-4
         multus: "cernfabricfff2"
         iprange: "2602:fcfb:1d:fff2::4/64"
         gateway: "2602:fcfb:1d:fff2::1"
@@ -108,7 +109,7 @@ clusters:
   
   cluster-fff3:
     redirector:
-      name: redirector-fff3
+      name: cern-redirector-fff3
       multus: "cernfabricfff3"
       iprange: "2602:fcfb:1d:fff3::5/64"
       gateway: "2602:fcfb:1d:fff3::1"
@@ -116,7 +117,7 @@ clusters:
       node: "ucsd-nrp.cern.ch"
       certs: "certs-cern"
     origins:
-      - name: origin-fff3-2
+      - name: cern-origin-fff3-2
         multus: "cernfabricfff3"
         iprange: "2602:fcfb:1d:fff3::2/64"
         gateway: "2602:fcfb:1d:fff3::1"
@@ -124,7 +125,7 @@ clusters:
         ip: "2602:fcfb:1d:fff3::2"
         node: "ucsd-nrp.cern.ch"
         certs: "certs-cern"
-      - name: origin-fff3-3
+      - name: cern-origin-fff3-3
         multus: "cernfabricfff3"
         iprange: "2602:fcfb:1d:fff3::3/64"
         gateway: "2602:fcfb:1d:fff3::1"
@@ -132,7 +133,7 @@ clusters:
         ip: "2602:fcfb:1d:fff3::3"
         node: "ucsd-nrp.cern.ch"
         certs: "certs-cern"
-      - name: origin-fff3-4
+      - name: cern-origin-fff3-4
         multus: "cernfabricfff3"
         iprange: "2602:fcfb:1d:fff3::4/64"
         gateway: "2602:fcfb:1d:fff3::1"

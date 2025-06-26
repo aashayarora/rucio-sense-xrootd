@@ -15,6 +15,7 @@ RUN mkdir -p /etc/grid-security/vomsdir/cms/
 COPY voms/voms-cms-auth.app.cern.ch.lsc /etc/grid-security/vomsdir/cms/voms-cms-auth.app.cern.ch.lsc
 COPY voms/voms-mapfile /etc/grid-security/voms-mapfile
 
+#COPY adler.py /etc/xrootd/checksum/adler.py
 COPY supervisord.conf /etc/supervisord.d/10-xrootd.conf
 COPY xrootd.cfg /etc/xrootd/xrootd.cfg
 
